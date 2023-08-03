@@ -6,6 +6,7 @@ use Grav\Common\Grav;
 use Grav\Common\Utils;
 use Grav\Common\Data\Data;
 use Grav\Common\File\CompiledYamlFile;
+use Grav\Common\Language\Language;
 
 
 /**
@@ -30,7 +31,11 @@ class CookieConsent extends Data {
             }
         }
 
-        return CompiledYamlFile::instance(Grav::instance()['locator']->findResource($dataStorage) . DS . $type . ".yaml")->content();
+        if(file_exists(Grav::instance()['locator']->findResource($dataStorage) . DS . $type . "." . Grav::instance()['language']->getActive() . ".yaml")) {
+            return CompiledYamlFile::instance(Grav::instance()['locator']->findResource($dataStorage) . DS . $type . "." . Grav::instance()['language']->getActive() . ".yaml")->content();
+        } else {
+            return CompiledYamlFile::instance(Grav::instance()['locator']->findResource($dataStorage) . DS . $type . ".yaml")->content();
+        }
     }
 
 }

@@ -153,6 +153,7 @@ class TecartCookieManagerPlugin extends Plugin {
 
             //array for twig variables of tecart-cookie-manager/blueprints.yaml//
             $pluginConfig = $this->config->toArray();
+
             $cookieBannerData = CookieConsent::getYamlDataByType('cookie-manager');
             $cookieBannerScripts = CookieConsent::getYamlDataByType('cookie-manager-scripts');
             $cookieBannerCategories = CookieConsent::getYamlDataByType('cookie-manager-categories');
