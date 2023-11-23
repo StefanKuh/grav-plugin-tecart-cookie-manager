@@ -31,8 +31,8 @@ class CookieConsent extends Data {
             }
         }
 
-        if(file_exists(Grav::instance()['locator']->findResource($dataStorage) . DS . $type . "." . Grav::instance()['language']->getActive() . ".yaml")) {
-            return CompiledYamlFile::instance(Grav::instance()['locator']->findResource($dataStorage) . DS . $type . "." . Grav::instance()['language']->getActive() . ".yaml")->content();
+        if(file_exists(Grav::instance()['locator']->findResource($dataStorage) . DS . $type . "." . Grav::instance()['language']->getLanguage() . ".yaml")) {
+            return CompiledYamlFile::instance(Grav::instance()['locator']->findResource($dataStorage) . DS . $type . "." . Grav::instance()['language']->getLanguage() . ".yaml")->content();
         } else {
             return CompiledYamlFile::instance(Grav::instance()['locator']->findResource($dataStorage) . DS . $type . ".yaml")->content();
         }
